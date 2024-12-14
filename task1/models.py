@@ -1,6 +1,7 @@
 from django.db import models
 
-class Byuer(models.Model):
+
+class Buyer(models.Model):
     name = models.CharField(max_length=100)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     age = models.PositiveIntegerField()
@@ -14,7 +15,8 @@ class Game(models.Model):
     size = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
     age_limited = models.BooleanField(default=False)
-    buyers = models.ManyToManyField(Byuer, related_name='games')
+    buyers = models.ManyToManyField(Buyer, related_name='games')
 
     def __str__(self):
         return self.title
+
